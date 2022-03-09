@@ -1,16 +1,20 @@
 from pyexpat import model
 from django.db import models
+from .managers import CustomUserManager
+from django.contrib.auth.models import AbstractUser
 
-
-class User_Model(models.Model):
+class User_Model(AbstractUser):
     first_name = models.CharField(max_length=50, blank=False, null=True)
     lastname = models.CharField(max_length=50, blank=False, null=True)
     email = models.CharField(max_length=50, blank=False, null=True)
-    username = models.CharField(max_length=50, blank=False, null=True)
-    password = models.CharField(max_length=50, blank=False, null=True)
+    
+    password = models.CharField(max_length=255, blank=False, null=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
+    
+    objects = CustomUserManager()
+
 
 
     def __str__(self):

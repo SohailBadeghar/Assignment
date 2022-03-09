@@ -3,7 +3,7 @@ class UserRouter:
     A router to control all database operations on models in the
     auth and contenttypes applications.
     """
-    route_app_labels = {'auth', 'contenttypes','sessions','admin','User_Model'}
+    route_app_labels = {'auth', 'contenttypes','sessions','admin','user','staticfiles'}
 
     def db_for_read(self, model, **hints):
         """
@@ -47,7 +47,7 @@ class ProductRouter:
     A router to control all database operations on models in the
     auth and contenttypes applications.
     """
-    route_app_labels = {'Post_Model_User'}
+    route_app_labels = {'Product'}
 
     def db_for_read(self, model, **hints):
         """
